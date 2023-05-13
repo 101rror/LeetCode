@@ -1,6 +1,13 @@
 class Solution:
     def matrixSum(self, nums: List[List[int]]) -> int:
-        rows = [sorted(row) for row in nums]
-        ans = sum(max(row[i] for row in rows) for i in range(len(rows[0])))
+        mxsum = 0
+        nums = [sorted(i) for i in nums]
+
+        while any(nums):
+            temp = 0
+            for i in nums:
+                temp = max(temp, i.pop())
+            mxsum += temp
+
+        return mxsum
         
-        return ans
