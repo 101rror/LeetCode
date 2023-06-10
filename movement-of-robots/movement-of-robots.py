@@ -10,16 +10,15 @@ class Solution:
                 
         Tsum = 0
         nums = sorted(nums)
-
         mod = 10 ** 9 + 7
         res = 0
         
-        for i in range(n):
-            Tsum += (nums[i] * i - res)
-            Tsum %= mod
-            res += nums[i]
-            res %= mod
+        for i in range(1, n):
+            x = (nums[i] - nums[i - 1])
+            x *= i
+            Tsum += x
+            res += Tsum
             
-        ans = (Tsum % mod)
+        ans = (res % mod)
 
         return ans
