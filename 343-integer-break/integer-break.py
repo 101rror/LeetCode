@@ -4,10 +4,6 @@ class Solution:
 
         if(n == 2 or n == 3):
             return (n - 1)
-        if(n == 4):
-            return n
-        if(n == 5):
-            return (n + 1)
 
         while(n):
             if(not n % 3):
