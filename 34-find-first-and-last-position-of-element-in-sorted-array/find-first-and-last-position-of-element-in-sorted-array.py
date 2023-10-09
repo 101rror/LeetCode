@@ -4,11 +4,26 @@ class Solution:
         ans = []
         no = [-1, -1]
 
-        for i in range(n):
-            if(nums[i] == target):
-                ans.append(i)
+        def search(check):
+            first = 0
+            last = n
 
-        if(len(ans) == 0):
+            while (first < last):
+                mid = (first + last) // 2
+                
+                if (nums[mid] < check):
+                    first = (mid +1)
+                else:
+                    last = mid                    
+            return first
+        
+        first = search(target)
+        last = search(target + 1) - 1
+        
+        if (first <= last):
+            ans.append(first)
+            ans.append(last)
+            return ans
+            
+        else:        
             return no
-        else:
-            return ans[0], ans[len(ans) - 1]
