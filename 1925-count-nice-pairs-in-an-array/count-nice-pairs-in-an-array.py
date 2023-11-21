@@ -12,8 +12,10 @@ class Solution:
             y = (nums[i] - int(x1))
             ans.append(y)
 
-        for i in Counter(ans).values():
-            x = (i * (i - 1) / 2)
-            count += x
+        mp = defaultdict(int)
+
+        for i in ans:
+            count += mp[i]
+            mp[i] += 1
 
         return int(count % mod)
