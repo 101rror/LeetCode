@@ -1,21 +1,16 @@
 class Solution:
     def minimumPushes(self, word: str) -> int:
         n = len(word)
-        ans = 0
-        num = 2
-        mp = defaultdict(str)
-
-        for i in word:
-            mp[num] += i
-            num += 1
-            if(num == 10):
-                num = 2
-
-        for i in word:
-            for j in range(2, 10):
-                if i in mp[j]:
-                    ans += (mp[j].index(i) + 1)
-                    break
-
-        return ans
+        
+        if(n <= 8):
+            return n
+        elif(n <= 16):
+            x = (n - 8)
+            return (1 * 8) + (x * 2)
+        elif(n <= 24):
+            x = (n - 16)
+            return (3 * 8) + (x * 3)
+        else:
+            x = (n - 24)
+            return (6 * 8) + (x * 4)
         
