@@ -3,7 +3,9 @@ class Solution:
         n = len(nums)
         
         for i in range(n):
-            nums[i] = int(math.pow(nums[i], 2))
+            x = (nums[i] ** 2)
+            nums[i] = x
+
+        nums.sort()
         
-        nums = sorted(nums)
         return nums
