@@ -23,6 +23,6 @@ class Solution:
                 power += token[last]
                 last -= 1
             else:
-                return mx
+                break
 
         return mx
