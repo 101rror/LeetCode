@@ -9,6 +9,7 @@ class Solution:
                 if i & 1:
                     XOR ^= nums[j]
                 i >>= 1
+                
             ans += XOR
 
         return ans
