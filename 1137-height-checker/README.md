@@ -28,7 +28,6 @@ All indices do not match.
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
-
 <pre>
 <strong>Input:</strong> heights = [1,2,3,4,5]
 <strong>Output:</strong> 0
