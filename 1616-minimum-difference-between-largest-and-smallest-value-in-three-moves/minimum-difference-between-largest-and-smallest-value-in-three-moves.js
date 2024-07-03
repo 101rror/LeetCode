@@ -2,11 +2,11 @@
  * @param {number[]} nums
  * @return {number}
  */
-var minDifference = function(nums) {
+var minDifference = function (nums) {
     let n = nums.length;
     nums.sort((a, b) => a - b);
 
-    if (n <= 4 ){
+    if (n <= 4) {
         return 0;
     }
 
