@@ -9,32 +9,32 @@ class Solution:
 
         for i in range(len(arrays)):
             mn = min(arrays[i])
-            
+
             if mn < low1:
                 low1 = mn
                 lowindex = i
 
         for i in range(len(arrays)):
             mx = max(arrays[i])
-            
+
             if i != lowindex and mx > high1:
                 high1 = mx
 
         for i in range(len(arrays)):
             mx = max(arrays[i])
-            
+
             if mx > high2:
                 high2 = mx
                 highindex = i
 
         for i in range(len(arrays)):
             mn = min(arrays[i])
-            
+
             if i != highindex and mn < low2:
                 low2 = mn
 
-        low = (high1 - low1)
-        high = (high2 - low2)
+        low = high1 - low1
+        high = high2 - low2
 
         ans = max(low, high)
 
