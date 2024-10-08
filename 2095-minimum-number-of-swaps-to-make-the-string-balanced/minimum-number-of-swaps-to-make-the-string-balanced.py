@@ -4,7 +4,7 @@ class Solution:
         count = 0
 
         for b in s:
-            if b == '[':
+            if b == "[":
                 stack.append(b)
             else:
                 if stack:
