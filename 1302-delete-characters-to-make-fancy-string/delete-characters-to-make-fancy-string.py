@@ -1,20 +1,16 @@
 class Solution:
     def makeFancyString(self, s: str) -> str:
         ans = s[0]
-        freq = 1
-        prev = s[0]
+        count = 1
 
-        if len(s) < 3:
-            return s
-        
         for i in range(1, len(s)):
-            if s[i] == prev:
-                freq += 1
+            if s[i] == ans[-1]:
+                count += 1
+
+                if count < 3:
+                    ans += s[i]
             else:
-                prev = s[i]
-                freq = 1
-
-            if freq < 3:
+                count = 1
                 ans += s[i]
-
+                
         return ans
