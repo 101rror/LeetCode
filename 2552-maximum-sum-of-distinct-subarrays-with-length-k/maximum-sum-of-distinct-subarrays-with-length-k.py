@@ -1,22 +1,22 @@
 class Solution:
     def maximumSubarraySum(self, nums: List[int], k: int) -> int:
         n = len(nums)
-        counter = collections.Counter(nums[:k]) 
-        tsum = sum(nums[:k])
-
+        counter = Counter(nums[:k])
+        ksum = sum(nums[:k])
         maxsum = 0
+
         if len(counter) == k:
-            maxsum = tsum
+            maxsum = ksum
 
         for i in range(k, n):
-            x, y = nums[i], nums[i - k]
-            tsum += x - y
-            counter[x] += 1
-            counter[y] -= 1
-
-            if counter[y] == 0:
-                del counter[y]
+            fi, la = nums[i], nums[i - k]
+            ksum += fi - la
+            counter[fi] += 1
+            counter[la] -= 1
+            
+            if counter[la] == 0:
+                del counter[la]
             if len(counter) == k:
-                maxsum = max(maxsum, tsum)
+                maxsum = max(maxsum, ksum)
 
         return maxsum
