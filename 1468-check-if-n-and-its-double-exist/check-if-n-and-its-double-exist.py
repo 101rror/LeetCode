@@ -1,9 +1,10 @@
 class Solution:
     def checkIfExist(self, arr: List[int]) -> bool:
-        zero = arr.count(0)
+        seen = set()
 
         for num in arr:
-            if num != 0 and 2 * num in arr:
+            if 2 * num in seen or (num % 2 == 0 and num // 2 in seen):
                 return True
+            seen.add(num)
                     
-        return True if zero > 1 else False
+        return False
