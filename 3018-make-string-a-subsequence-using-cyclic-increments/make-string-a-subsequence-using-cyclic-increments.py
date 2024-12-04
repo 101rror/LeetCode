@@ -5,9 +5,7 @@ class Solution:
         n, m = len(str1), len(str2)
 
         while i < n and j < m:
-            if str1[i] == str2[j]:
-                j += 1
-            elif alpha[(alpha.index(str1[i]) + 1) % 26] == str2[j]:
+            if str1[i] == str2[j] or alpha[(alpha.index(str1[i]) + 1) % 26] == str2[j]:
                 j += 1
             i += 1
 
