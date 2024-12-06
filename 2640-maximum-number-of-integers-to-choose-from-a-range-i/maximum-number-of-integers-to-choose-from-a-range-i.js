@@ -4,25 +4,25 @@
  * @param {number} maxSum
  * @return {number}
  */
-var maxCount = function(banned, n, maxSum) {
+var maxCount = function (banned, n, maxSum) {
     const st = new Set(banned);
     let arr = [];
 
-    for(let i = 1; i <= n; i++){
-        if (!st.has(i)){
+    for (let i = 1; i <= n; i++) {
+        if (!st.has(i)) {
             arr.push(i);
         }
     }
 
     let cursum = 0, count = 0;
 
-    for (const it of arr){
+    for (const it of arr) {
         cursum += it;
 
-        if (cursum <= maxSum){
+        if (cursum <= maxSum) {
             count += 1;
         }
-        else{
+        else {
             break;
         }
     }
