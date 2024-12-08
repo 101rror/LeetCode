@@ -1,6 +1,6 @@
 class Solution:
     def minOperations(self, nums: List[int], k: int) -> int:
-        st = list(set(nums))
+        st = set(nums)
         count = 0
 
         for num in st:
