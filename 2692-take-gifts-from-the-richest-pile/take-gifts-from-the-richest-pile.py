@@ -16,6 +16,6 @@ class Solution:
         ans = 0
 
         for gift in heap:
-            ans += (-1 * gift)
+            ans += -1 * gift
 
         return ans
