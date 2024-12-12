@@ -7,10 +7,15 @@ class Solution:
 
         heapq.heapify(heap)
 
-        while(k):
-            large = -heappop(heap)
-            sqt = int(large ** 0.5)
-            heappush(heap, -sqt)
+        while k:
+            top = -heapq.heappop(heap)
+            sqt = int(sqrt(top))
+            heapq.heappush(heap, -sqt)
             k -= 1
 
-        return abs(sum(heap))
+        ans = 0
+
+        for gift in heap:
+            ans += (-1 * gift)
+
+        return ans
