@@ -1,21 +1,19 @@
 class Solution:
     def findScore(self, nums: List[int]) -> int:
+        n = len(nums)
+        heap = [(num, i) for i, num in enumerate(nums)]
+        heapq.heapify(heap)
 
-        n, ans, seen = len(nums), 0, set()
+        score = 0
 
-        queue = sorted(enumerate(nums), key = lambda x: (x[1],x[0]))
+        while heap:
+            num, idx = heapq.heappop(heap)
+            if nums[idx] != -1:
+                score += num
+                nums[idx] = -1
+                if idx > 0 and nums[idx - 1] != -1:
+                    nums[idx - 1] = -1
+                if idx < n - 1 and nums[idx + 1] != -1:
+                    nums[idx + 1] = -1
 
-        for idx, num in queue:
-            if idx in seen:
-                continue
-
-            ans += num
-            
-            seen.add(idx)
-
-            if idx > 0  :
-                seen.add(idx-1)
-            if idx < n-1:
-                seen.add(idx+1) 
-            
-        return ans
+        return score
