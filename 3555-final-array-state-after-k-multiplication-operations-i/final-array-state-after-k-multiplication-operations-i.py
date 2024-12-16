@@ -1,14 +1,22 @@
 class Solution:
     def getFinalState(self, nums: List[int], k: int, multiplier: int) -> List[int]:
-        while(k):
-            x = min(nums)
-            t = 0
+        n = len(nums)
+        heap = []
+        ans = [0] * n
 
-            for i in range(len(nums)):
-                if nums[i] == x and t == 0:
-                    nums[i] = x * multiplier
-                    t = 1
+        for idx, num in enumerate(nums):
+            heap.append((num, idx))
 
+        heapify(heap)
+
+        while k:
+            num, idx = heappop(heap)
+            num *= multiplier
+            heappush(heap, (num, idx))
             k -= 1
 
-        return nums
+        while heap:
+            num, idx = heappop(heap)
+            ans[idx] = num
+
+        return ans
