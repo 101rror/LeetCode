@@ -10,19 +10,18 @@ class Solution:
         q = deque([root])
 
         if not root:
-            return []
+            return ans
 
         while q:
-            l = []
+            check = []
             for i in range(len(q)):
-                n = q .popleft()
-                l.append(n.val)
+                n = q.popleft()
+                check.append(n.val)
                 if n.left:
                     q.append(n.left)
                 if n.right:
                     q.append(n.right)
 
-            ans.append(max(l))
+            ans.append(max(check))
 
-        return ans 
-        
+        return ans
