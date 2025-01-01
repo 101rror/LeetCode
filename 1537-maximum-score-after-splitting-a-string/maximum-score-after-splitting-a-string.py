@@ -1,20 +1,16 @@
 class Solution:
     def maxScore(self, s: str) -> int:
         n = len(s)
-        sum = s.count('1', 1)
+        mx = 0
 
-        if s[0] == '0':
-            sum += 1
+        for i in range(1, n):
+            left = s[0:i]
+            right = s[i:n]
 
-        ans = sum
+            if left.count("0") > 0 or right.count("1") > 0:
+                zero = left.count("0")
+                one = right.count("1")
 
-        for c in s[1 : n - 1]:
-            if c == '0':
-                sum += 1
-            else:
-                sum -= 1
+                mx = max(mx, zero + one)
 
-            ans = max(ans, sum)
-            
-        return ans
-        
+        return mx
