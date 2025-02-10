@@ -1,0 +1,16 @@
+class Solution {
+public:
+    string clearDigits(string s) {
+        string stack;
+
+        for (char c : s) {
+            if (isdigit(c) && !stack.empty()) {
+                stack.pop_back();
+            } else {
+                stack.push_back(c);
+            }
+        }
+
+        return stack;
+    }
+};
