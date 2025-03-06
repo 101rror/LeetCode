@@ -17,9 +17,9 @@ class Solution:
             if abs(ast[i - 1] - ast[i]) != 1:
                 x = ast[i] - 1
 
-        if(x == 0 and ast[0] == 1):
+        if x == 0 and ast[0] == 1:
             res.append(ast[len(ast) - 1] + 1)
-        elif(x == 0 and ast[0] != 1):
+        elif x == 0 and ast[0] != 1:
             res.append(ast[0] - 1)
         else:
             res.append(x)
