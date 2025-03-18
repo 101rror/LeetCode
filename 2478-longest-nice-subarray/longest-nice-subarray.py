@@ -1,0 +1,18 @@
+class Solution:
+    def longestNiceSubarray(self, nums: List[int]) -> int:
+        n = len(nums)
+        maxlen = 1
+
+        left = 0
+        used_bits = 0
+
+        for right in range(n):
+            while used_bits & nums[right] != 0:
+                used_bits ^= nums[left]
+                left += 1
+
+            used_bits |= nums[right]
+
+            maxlen = max(maxlen, right - left + 1)
+
+        return maxlen
