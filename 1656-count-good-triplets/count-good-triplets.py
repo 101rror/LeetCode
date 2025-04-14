@@ -10,7 +10,7 @@ class Solution:
                     y = abs(arr[j] - arr[k])
                     z = abs(arr[i] - arr[k])
 
-                    if(x <= a and y <= b and z <= c):
+                    if x <= a and y <= b and z <= c:
                         count += 1
-        
+
         return count
