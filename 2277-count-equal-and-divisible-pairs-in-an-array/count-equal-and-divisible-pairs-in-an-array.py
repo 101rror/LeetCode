@@ -1,12 +1,17 @@
+from collections import defaultdict
+
+
 class Solution:
-    def countPairs(self, nums: List[int], k: int) -> int:
-        n = len(nums)
-        count = 0
+    def countPairs(self, nums: list[int], k: int) -> int:
+        mp = defaultdict(lambda: defaultdict(int))
+        ans = 0
 
-        for i in range(0, n - 1):
-            for j in range(i + 1, n):
-                if nums[i] == nums[j]:
-                    if (i * j) % k == 0:
-                        count += 1
+        for i, num in enumerate(nums):
+            mi = i % k
+            if num in mp:
+                for mj, count in mp[num].items():
+                    if (mi * mj) % k == 0:
+                        ans += count
+            mp[num][mi] += 1
 
-        return count
+        return ans
