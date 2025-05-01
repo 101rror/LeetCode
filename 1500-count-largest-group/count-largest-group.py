@@ -6,11 +6,11 @@ class Solution:
             key = sum([int(x) for x in str(i)])
             counter[key] += 1
 
-        mx = max(counter.values())
+        mxVal = max(counter.values())
         count = 0
 
         for val in counter.values():
-            if val == mx:
+            if val == mxVal:
                 count += 1
 
         return count
