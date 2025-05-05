@@ -6,11 +6,13 @@
  */
 
 var findClosest = function (x, y, z) {
-    if (Math.abs(z - x) < Math.abs(z - y)) {
+    if (Math.abs(z - x) < Math.abs(z - y)){
         return 1;
-    } else if (Math.abs(z - y) < Math.abs(z - x)) {
+    }
+    else if (Math.abs(z - y) < Math.abs(z - x)) {
         return 2;
-    } else {
+    }
+    else {
         return 0;
     }
 };
