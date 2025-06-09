@@ -20,5 +20,5 @@ class Solution:
             else:
                 ans *= 10
                 k -= 1
-        
+
         return ans
