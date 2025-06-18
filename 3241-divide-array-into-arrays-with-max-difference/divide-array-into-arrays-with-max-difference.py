@@ -4,7 +4,7 @@ class Solution:
         nums.sort()
 
         for i in range(0, len(nums), 3):
-            if(k < nums[i + 2] - nums[i]):
+            if k < nums[i + 2] - nums[i]:
                 return []
             ans.append(nums[i : i + 3])
 
