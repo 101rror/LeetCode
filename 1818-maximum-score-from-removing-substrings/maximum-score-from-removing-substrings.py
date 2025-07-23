@@ -1,6 +1,7 @@
 class Solution:
     def maximumGain(self, s: str, x: int, y: int) -> int:
         a, b = 'ab', 'ba'
+        
         if y > x:
             b, a, y, x = a, b, x, y
 
