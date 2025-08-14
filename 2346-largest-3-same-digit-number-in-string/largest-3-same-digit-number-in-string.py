@@ -4,18 +4,7 @@ class Solution:
         n = len(s)
 
         for i in range(n - 2):
-            if(s[i] ==  s[i + 1] and s[i + 1] == s[i + 2]):
-                ans += s[i] + s[i + 1] + s[i + 2]
+            if s[i] == s[i + 1] == s[i + 2]:
+                ans = max(ans, s[i : i + 3])
 
-        res = ''.join(sorted(ans, reverse=True))
-
-        st = ""
-        t = 0
-
-        for i in res:
-            st += i
-            t += 1
-            if(t == 3):
-                break
-
-        return st
+        return ans
