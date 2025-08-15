@@ -8,3 +8,5 @@ class Solution:
             t = math.log(n) / math.log(4)
             if(t == int(t)):
                 return True
+            else:
+                return False
