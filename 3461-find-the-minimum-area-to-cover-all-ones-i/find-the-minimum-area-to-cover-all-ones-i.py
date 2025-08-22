@@ -1,7 +1,6 @@
 class Solution:
     def minimumArea(self, grid: List[List[int]]) -> int:
-        n = len(grid)
-        m = len(grid[0])
+        n, m = len(grid), len(grid[0])
         left = up = sys.maxsize
         right = down = -sys.maxsize
 
@@ -13,4 +12,5 @@ class Solution:
                     right = max(right, j)
                     down = max(down, i)
 
-        return (right - left + 1) * (down - up + 1)
+        ans = (right - left + 1) * (down - up + 1)
+        return ans
