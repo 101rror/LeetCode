@@ -1,8 +1,7 @@
 class Solution:
     def areaOfMaxDiagonal(self, d: List[List[int]]) -> int:
         n = len(d)
-        mx = 0
-        m = 0
+        mx, m = 0, 0
         
         for i in range(n):
             x, y = d[i]
@@ -14,6 +13,3 @@ class Solution:
                 m = t
                 
         return mx
-            
-            
-            
