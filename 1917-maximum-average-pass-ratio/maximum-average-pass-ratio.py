@@ -18,5 +18,4 @@ class Solution:
             x = (p - q) / ((q + 1.0) * (q + 2.0))
             heapreplace(heap, (x, p + 1, q + 1))
 
-
         return tsum / n
