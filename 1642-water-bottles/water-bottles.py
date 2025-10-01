@@ -1,15 +1,14 @@
 class Solution:
     def numWaterBottles(self, numBottles: int, numExchange: int) -> int:
         ans = numBottles
+        bot, exc = numBottles, numExchange
 
-        while numBottles > 1:
-            x = numBottles // numExchange
-            y = numBottles - (numExchange * x)
+        while bot:
+            x = bot // exc
+            y = bot - (exc * x)
             ans += x
-            numBottles = numBottles // numExchange
-            numBottles += y
+            bot //= exc
+            bot += y
 
-            if numBottles < numExchange:
-                break
-
-        return ans
+            if bot < exc:
+                return ans
