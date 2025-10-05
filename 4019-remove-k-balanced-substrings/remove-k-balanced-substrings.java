@@ -1,4 +1,3 @@
-// ---------- CP Trie Functions ----------
 class CPTemplate {
     static int MAX_BITS = 19;
 
@@ -59,15 +58,15 @@ public class Solution {
         StringBuilder ans = new StringBuilder(s);
         StringBuilder patternBuilder = new StringBuilder();
 
-        for (int i = 0; i < k; i++){
+        for (int i = 0; i < k; i++) {
             patternBuilder.append('(');
         }
-        for (int i = 0; i < k; i++){
+        for (int i = 0; i < k; i++) {
             patternBuilder.append(')');
         }
         String pattern = patternBuilder.toString();
 
-        if (pattern.length() == 0){
+        if (pattern.length() == 0) {
             return s;
         }
 
@@ -76,8 +75,7 @@ public class Solution {
             if (ans.substring(i, i + 2 * k).equals(pattern)) {
                 ans.delete(i, i + 2 * k);
                 i = Math.max(0, i - 2 * k);
-            }
-             else {
+            } else {
                 i++;
             }
         }
