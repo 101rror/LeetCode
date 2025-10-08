@@ -4,13 +4,12 @@ class Solution:
         ans = []
         n = len(potions)
 
-        for i in spells:
-            val = (success // i)
+        for num in spells:
+            val = success // num
 
-            if (success % i == 0):
+            if success % num == 0:
                 idx = bisect.bisect_left(potions, val)
-
-            else:    
+            else:
                 idx = bisect.bisect_right(potions, val)
 
             ans.append(n - idx)
