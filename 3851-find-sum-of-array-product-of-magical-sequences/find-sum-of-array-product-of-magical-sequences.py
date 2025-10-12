@@ -4,10 +4,8 @@ MAX = 55
 fact = [1] * MAX
 ifact = [1] * MAX
 for i in range(1, MAX):
-    fact[i] = fact[i - 1] * i % MOD
+    fact[i] = fact[i - 1] * i
     ifact[i] = pow(fact[i], -1, MOD)
-
-from functools import cache
 
 class Solution:
     def magicalSum(self, M: int, K: int, nums: List[int]) -> int:
