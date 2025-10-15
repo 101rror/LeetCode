@@ -5,7 +5,7 @@ public:
         int left = 0, right = n - 1;
         int ans = 0;
 
-        while (left <= right) {
+        while (left < right) {
             int currentArea = min(height[left], height[right]) * (right - left);
             ans = max(ans, currentArea);
 
