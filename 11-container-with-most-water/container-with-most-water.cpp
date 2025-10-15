@@ -6,8 +6,8 @@ public:
         int ans = 0;
 
         while (left < right) {
-            int currentArea = min(height[left], height[right]) * (right - left);
-            ans = max(ans, currentArea);
+            int cur = min(height[left], height[right]) * (right - left);
+            ans = max(ans, cur);
 
             if (height[left] < height[right]) {
                 left++;
