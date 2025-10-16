@@ -13,7 +13,7 @@ class Solution {
 public:
     int compress(vector<char>& chars) {
         int n = chars.size();
-        int idx = 0, i = 0;
+        int ans = 0, i = 0;
 
         while (i < n) {
             char ch = chars[i];
@@ -25,17 +25,17 @@ public:
             }
 
             if (count == 1) {
-                chars[idx++] = ch;
+                chars[ans++] = ch;
             } else {
-                chars[idx++] = ch;
+                chars[ans++] = ch;
                 string str = to_string(count);
 
                 for (auto digit : str) {
-                    chars[idx++] = digit;
+                    chars[ans++] = digit;
                 }
             }
         }
 
-        return idx;
+        return ans;
     }
 };
