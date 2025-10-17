@@ -1,6 +1,3 @@
-from functools import lru_cache
-
-
 class Solution:
     def maxPartitionsAfterOperations(self, s: str, k: int) -> int:
         def cnt(n: int) -> int:
