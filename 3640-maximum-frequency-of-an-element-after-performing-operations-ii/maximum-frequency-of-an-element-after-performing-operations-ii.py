@@ -1,7 +1,3 @@
-import bisect
-from collections import Counter
-
-
 class Solution:
     def maxFrequency(self, nums: List[int], k: int, numOperations: int) -> int:
         nums.sort()
@@ -13,15 +9,15 @@ class Solution:
         freq = Counter(nums)
         ans = 1
 
-        for v, already in freq.items():
-            lowVal = v - k
-            highVal = v + k
-            L = bisect.bisect_left(nums, lowVal)
-            R = bisect.bisect_right(nums, highVal)
-            totalInRange = R - L
-            need = totalInRange - already
-            canFix = min(need, numOperations)
-            ans = max(ans, already + canFix)
+        for v, t in freq.items():
+            low = v - k
+            high = v + k
+            L = bisect.bisect_left(nums, low)
+            R = bisect.bisect_right(nums, high)
+            mid = R - L
+            need = mid - t
+            x = min(need, numOperations)
+            ans = max(ans, t + x)
 
         l = 0
         for r in range(n):
