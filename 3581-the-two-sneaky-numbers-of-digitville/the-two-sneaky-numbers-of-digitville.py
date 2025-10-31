@@ -1,12 +1,13 @@
 class Solution:
     def getSneakyNumbers(self, nums: List[int]) -> List[int]:
-        dic = {}
+        mp = defaultdict(int)
         ans = []
-        
+
         for num in nums:
-            if num in dic:
-                ans.append(num)
-            else:
-                dic[num] = 1
-                
+            mp[num] += 1
+
+        for key, val in mp.items():
+            if val == 2:
+                ans.append(key)
+
         return ans
