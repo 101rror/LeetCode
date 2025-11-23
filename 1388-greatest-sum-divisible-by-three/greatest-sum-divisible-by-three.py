@@ -7,11 +7,11 @@ class Solution:
             if i < 0:
                 return 0 if mod == 0 else -(1 << 30)
             x = nums[i]
-            modPrev = (mod - x) % 3
+            Pre = (mod - x) % 3
 
-            if modPrev < 0:
-                modPrev += 3
+            if Pre < 0:
+                Pre += 3
 
-            return max(x + f(i - 1, modPrev), f(i - 1, mod))
+            return max(x + f(i - 1, Pre), f(i - 1, mod))
 
         return max(0, f(n - 1, 0))
