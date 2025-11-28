@@ -1,9 +1,8 @@
 class Solution:
     def maxKDivisibleComponents(self, n, edges, values, k) -> int:
-        if n <= 1:
+        if n == 1:
             return 1
         count = 0
-
         mp = defaultdict(set)
         
         for u, v in edges:
