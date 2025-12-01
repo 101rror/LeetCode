@@ -4,7 +4,7 @@ class Solution:
         tsum = sum(arr)
 
         while arr[-1] > tsum // n:
-            n -= 1
             tsum -= arr.pop()
+            n -= 1
 
         return tsum // n
