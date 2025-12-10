@@ -8,8 +8,8 @@ class Solution:
             if c <= fi:
                 return 0
 
-        fact = 1
+        ans = 1
         for i in range(2, n):
-            fact = fact * i
+            ans *= i
 
-        return fact % MOD
+        return ans % MOD
