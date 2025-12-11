@@ -1,20 +1,19 @@
 class Solution:
     def countCoveredBuildings(self, n: int, buildings: List[List[int]]) -> int:
-        cm = [n + 1] * (n + 1)
-        cM = [0] * (n + 1)
-        rm = [n + 1] * (n + 1)
-        rM = [0] * (n + 1)
-
-        for x, y in buildings:
-            cm[x] = min(cm[x], y)
-            cM[x] = max(cM[x], y)
-            rm[y] = min(rm[y], x)
-            rM[y] = max(rM[y], x)
-
         count = 0
+        colMin = [n + 1] * (n + 1)
+        colMax = [0] * (n + 1)
+        rowMin = [n + 1] * (n + 1)
+        rowMax = [0] * (n + 1)
 
         for x, y in buildings:
-            if cm[x] < y < cM[x] and rm[y] < x < rM[y]:
+            colMin[x] = min(colMin[x], y)
+            colMax[x] = max(colMax[x], y)
+            rowMin[y] = min(rowMin[y], x)
+            rowMax[y] = max(rowMax[y], x)
+
+        for x, y in buildings:
+            if colMin[x] < y < colMax[x] and rowMin[y] < x < rowMax[y]:
                 count += 1
 
         return count
