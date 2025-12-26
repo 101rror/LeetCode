@@ -1,10 +1,11 @@
 class Solution:
     def bestClosingTime(self, customers: str) -> int:
+        n = len(customers)
         mx = score = 0
         ans = -1
 
-        for i, c in enumerate(customers):
-            if c == "Y":
+        for i in range(n):
+            if customers[i] == "Y":
                 score += 1
             else:
                 score -= 1
