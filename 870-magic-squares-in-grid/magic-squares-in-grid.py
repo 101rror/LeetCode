@@ -12,17 +12,17 @@ class Solution:
             [[4, 3, 8], [9, 5, 1], [2, 7, 6]],
             [[2, 9, 4], [7, 5, 3], [6, 1, 8]],
             [[6, 7, 2], [1, 5, 9], [8, 3, 4]],
-            [[8, 1, 6], [3, 5, 7], [4, 9, 2]]
+            [[8, 1, 6], [3, 5, 7], [4, 9, 2]],
         ]
 
         if n < 3 or m < 3:
             return 0
-        
+
         for row in range(n - 2):
             for col in range(m - 2):
-                subgrid = [grid[row + i][col : col + 3] for i in range(3)]
+                sub = [grid[row + i][col : col + 3] for i in range(3)]
 
-                if subgrid in square:
+                if sub in square:
                     count += 1
 
         return count
