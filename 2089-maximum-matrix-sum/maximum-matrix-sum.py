@@ -1,8 +1,6 @@
 class Solution:
     def maxMatrixSum(self, matrix: List[List[int]]) -> int:
-        tsum = 0
-        mn = float("inf")
-        neg = 0
+        tsum, neg, mn = 0, 0, float("inf")
 
         for row in matrix:
             for val in row:
@@ -11,6 +9,5 @@ class Solution:
 
                 tsum += abs(val)
                 mn = min(mn, abs(val))
-                
 
-        return (tsum - 2 * mn) if neg % 2 != 0 else tsum
+        return (tsum - 2 * mn) if neg & 1 else tsum
