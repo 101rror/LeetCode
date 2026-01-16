@@ -1,0 +1,1 @@
+<h2>maximum-square-area-by-removing-fences-from-a-field Notes</h2><hr>[ Time taken: 2 d 21 hrs 8 m 5 s ]
