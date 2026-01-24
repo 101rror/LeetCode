@@ -5,6 +5,7 @@ class Solution:
 
         ans = 0
         for i in range(n // 2):
-            ans = max(ans, nums[i] + nums[n - i - 1])
+            x = nums[i] + nums[n - i - 1]
+            ans = max(ans, x)
 
         return ans
