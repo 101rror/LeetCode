@@ -7,11 +7,10 @@ class Solution:
 
         for i in range(1, n):
             x = abs(arr[i] - arr[i - 1])
-            mn = min(mn, x)
-
-        for i in range(1, n):
-            x = abs(arr[i] - arr[i - 1])
-            if x == mn:
+            if x < mn:
+                mn = x
+                ans = [[arr[i - 1], arr[i]]]
+            elif x == mn:
                 ans.append([arr[i - 1], arr[i]])
 
         return ans
