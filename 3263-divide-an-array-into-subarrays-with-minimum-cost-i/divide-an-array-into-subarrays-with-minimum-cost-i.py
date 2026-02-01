@@ -1,8 +1,14 @@
 class Solution:
     def minimumCost(self, nums: List[int]) -> int:
+        n = len(nums)
         first = nums[0]
-        nums.pop(0)
-        nums.sort()
-        first += nums[0] + nums[1]
+        fi, se = 51, 51
 
-        return first
+        for i in range(1, n):
+            if nums[i] < fi:
+                se = fi
+                fi = nums[i]
+            elif nums[i] < se:
+                se = nums[i]
+
+        return first + se + fi
