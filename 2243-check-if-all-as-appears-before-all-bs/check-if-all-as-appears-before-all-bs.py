@@ -5,7 +5,6 @@ class Solution:
         for ch in s:
             if stack and ch == "a" and stack[-1] == "b":
                 return False
-            else:
-                stack.append(ch)
+            stack.append(ch)
 
         return True
