@@ -1,12 +1,11 @@
 class Solution:
     def checkString(self, s: str) -> bool:
-        n = len(s)
+        stack = []
 
-        if s.count("a") == 0:
-            return True
-
-        for i in range(1, n):
-            if s[i - 1] == "b" and s[i] == "a":
+        for ch in s:
+            if stack and ch == "a" and stack[-1] == "b":
                 return False
+            else:
+                stack.append(ch)
 
         return True
