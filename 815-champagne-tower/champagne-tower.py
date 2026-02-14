@@ -5,7 +5,7 @@ class Solution:
 
         for row in range(query_row):
             for glass in range(len(dp[row])):
-                excess = (dp[row][glass] - 1) / 2.0
+                excess = (dp[row][glass] - 1) / 2
                 if excess > 0:
                     dp[row + 1][glass] += excess
                     dp[row + 1][glass + 1] += excess
