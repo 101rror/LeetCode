@@ -1,19 +1,12 @@
 class Solution:
     def countPrimeSetBits(self, left: int, right: int) -> int:
-        def isPrime(num):
-            if num < 2:
-                return False
-            for i in range(2, int(math.sqrt(num)) + 1):
-                if num % i == 0:
-                    return False
-            return True
-
+        primes = {2, 3, 5, 7, 11, 13, 17, 19}
         count = 0
 
         while left <= right:
             one = bin(left).count("1")
 
-            if isPrime(one):
+            if one in primes:
                 count += 1
 
             left += 1
