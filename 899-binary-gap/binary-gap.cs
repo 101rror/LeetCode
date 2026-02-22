@@ -7,10 +7,8 @@ public class Solution {
                 if (last != -1) {
                     ans = Math.Max(ans, pos - last);
                 }
-                
                 last = pos;
             }
-
             n >>= 1;
             pos++;
         }
