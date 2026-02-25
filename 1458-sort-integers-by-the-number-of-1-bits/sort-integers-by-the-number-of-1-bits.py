@@ -1,18 +1,14 @@
-from collections import defaultdict
-
 class Solution:
     def sortByBits(self, arr: List[int]) -> List[int]:
-        lst = defaultdict(list)
+        mp = defaultdict(list)
 
-        for i in arr:
-            lst[bin(i).count('1')].append(i)
+        for num in arr:
+            mp[bin(num).count("1")].append(num)
 
         ans = []
 
-        for k in sorted(lst.keys()):
-            for i in sorted(lst[k]):
+        for k in sorted(mp.keys()):
+            for i in sorted(mp[k]):
                 ans.append(i)
+
         return ans
-
-
-        
