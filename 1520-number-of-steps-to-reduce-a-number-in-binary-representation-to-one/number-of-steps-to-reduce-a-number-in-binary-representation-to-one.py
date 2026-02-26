@@ -10,4 +10,4 @@ class Solution:
                 dec //= 2
             count += 1
 
-        return count        
+        return count
