@@ -12,15 +12,8 @@ class Solution:
 
         for i in range(1, zero + 1):
             for j in range(1, one + 1):
-                if i - limit - 1 >= 0:
-                    over0 = dp[i - limit - 1][j][1]
-                else:
-                    over0 = 0
-
-                if j - limit - 1 >= 0:
-                    over1 = dp[i][j - limit - 1][0]
-                else:
-                    over1 = 0
+                over0 = dp[i - limit - 1][j][1] if i - limit - 1 >= 0 else 0
+                over1 = dp[i][j - limit - 1][0] if j - limit - 1 >= 0 else 0
 
                 dp[i][j][0] = (dp[i - 1][j][0] + dp[i - 1][j][1] - over0) % MOD
                 dp[i][j][1] = (dp[i][j - 1][0] + dp[i][j - 1][1] - over1) % MOD
