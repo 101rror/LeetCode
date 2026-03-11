@@ -1,12 +1,10 @@
 class Solution:
     def bitwiseComplement(self, n: int) -> int:
-        bit = bin(n)[2:]
-        ans = ""
+        if n == 0:
+            return 1
 
-        for b in bit:
-            if b == "0":
-                ans += "1"
-            else:
-                ans += "0"
+        mask = n
+        for i in (1, 2, 4, 8, 16):
+            mask |= mask >> i
 
-        return int(ans, 2)
+        return ~n & mask
