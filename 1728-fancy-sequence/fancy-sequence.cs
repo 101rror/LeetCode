@@ -24,7 +24,9 @@ public class Fancy {
     }
 
     public int GetIndex(int idx) {
-        if(idx >= lst.Count) return -1;
+        if(idx >= lst.Count) {
+            return -1;
+        }
 
         long val = (lst[idx] * mul + add) % MOD;
         return (int)val;
@@ -39,8 +41,9 @@ public class Fancy {
         x %= MOD;
 
         while(y > 0) {
-            if((y & 1) == 1)
+            if((y & 1) == 1) {
                 res = (res * x) % MOD;
+            }
 
             x = (x * x) % MOD;
             y >>= 1;
