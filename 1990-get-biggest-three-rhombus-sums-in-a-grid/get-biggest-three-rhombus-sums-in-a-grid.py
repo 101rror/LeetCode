@@ -2,7 +2,7 @@ class Solution:
     def getBiggestThree(self, grid: List[List[int]]) -> List[int]:
         m = len(grid)
         n = len(grid[0])
-        sums = set()
+        rSum = set()
 
         for i in range(m):
             for j in range(n):
@@ -23,8 +23,8 @@ class Solution:
                             temp += grid[i - t][j + d - t]
                             temp += grid[i - t][j - d + t]
 
-                    sums.add(temp)
+                    rSum.add(temp)
 
-        ans = sorted(sums, reverse=True)
-        
+        ans = sorted(rSum, reverse=True)
+
         return ans[:3]
