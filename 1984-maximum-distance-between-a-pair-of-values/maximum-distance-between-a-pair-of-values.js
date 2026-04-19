@@ -4,22 +4,18 @@
  * @return {number}
  */
 var maxDistance = function (nums1, nums2) {
-    let distance = 0;
-    let i = 0, j = 0;
+    const n1 = nums1.length, n2 = nums2.length;
+    let i = 0, res = 0;
 
-    while (j < nums2.length && i < nums1.length) {
-        if (nums1[i] <= nums2[j]) {
-            distance = Math.max(distance, j - i);
-            j++;
-        }
-        else if (i < j) {
+    for (let j = 0; j < n2; j++) {
+        while (i < n1 && nums1[i] > nums2[j]) {
             i++;
         }
-        else {
-            i++;
-            j++;
-        }
+        if (i === n1)
+            break;
+
+        res = Math.max(res, j - i);
     }
 
-    return distance;
+    return res;
 };
