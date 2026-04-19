@@ -1,8 +1,7 @@
 class Solution:
     def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
         ans = 0
-        l1 = len(nums1)
-        l2 = len(nums2)
+        l1, l2 = len(nums1), len(nums2)
 
         for i in range(l1):
             first = i
@@ -16,5 +15,5 @@ class Solution:
                     last = mid - 1
 
             ans = max(ans, last - i)
-            
+
         return ans
