@@ -16,7 +16,7 @@ class Solution:
 
             for k, i in enumerate(idxs):
                 diff = k - (m - k - 1) - 1
-                ans[i] = diff * i - (2 * pre - tsum)
+                ans[i] = (diff * i) - (2 * pre - tsum)
                 pre += i
 
         return ans
