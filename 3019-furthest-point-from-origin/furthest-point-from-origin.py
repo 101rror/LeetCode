@@ -4,6 +4,5 @@ class Solution:
         left = moves.count("L")
         right = moves.count("R")
         ans = null + abs(left - right)
-                
+
         return ans
-        
