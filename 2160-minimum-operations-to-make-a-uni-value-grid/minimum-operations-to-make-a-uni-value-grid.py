@@ -1,9 +1,9 @@
 class Solution:
     def minOperations(self, grid: List[List[int]], x: int) -> int:
         nums = sorted([val for row in grid for val in row])
-        mod = nums[0] % x
+        rem = nums[0] % x
 
-        if any(num % x != mod for num in nums):
+        if any(num % x != rem for num in nums):
             return -1
 
         nums.sort()
