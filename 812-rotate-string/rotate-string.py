@@ -5,7 +5,4 @@ class Solution:
 
         new = s + s
 
-        if new.find(goal) != -1:
-            return True
-
-        return False
+        return goal in new
