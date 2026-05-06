@@ -1,15 +1,18 @@
 class Solution:
-    def rotateTheBox(self, box: List[List[str]]) -> List[List[str]]:
-        for row in box:
-            drop = len(row) - 1  
-            
-            for cur in range(len(row) - 1, -1, -1):
-                if row[cur] == "*":  
-                    drop = cur - 1
-                elif row[cur] == "#":  
-                    row[drop], row[cur] = row[cur], row[drop]
-                    drop -= 1
+    def rotateTheBox(self, boxGrid: List[List[str]]) -> List[List[str]]:
+        row = len(boxGrid)
+        col = len(boxGrid[0])
 
-        ans = zip(*box[::-1])
+        ans = [["."] * row for _ in range(col)]
+
+        for k, v in enumerate(boxGrid):
+            btm = col - 1
+            for j in range(col - 1, -1, -1):
+                if v[j] == "#":
+                    ans[btm][row - 1 - k] = "#"
+                    btm -= 1
+                elif v[j] == "*":
+                    ans[j][row - 1 - k] = "*"
+                    btm = j - 1
 
         return ans
