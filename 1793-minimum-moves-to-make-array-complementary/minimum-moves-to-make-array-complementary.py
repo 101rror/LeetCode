@@ -1,24 +1,22 @@
 class Solution:
     def minMoves(self, nums: List[int], limit: int) -> int:
         n = len(nums)
-        diff = [0] * (2 * limit + 2)
+        dp = [0] * (2 * limit + 2)
 
         for i in range(n // 2):
-            a = min(nums[i], nums[n - 1 - i])
-            b = max(nums[i], nums[n - 1 - i])
+            mn = min(nums[i], nums[-1 - i])
+            mx = max(nums[i], nums[-1 - i])
 
-            diff[a + 1] -= 1
-            diff[b + limit + 1] += 1
+            dp[2] += 2
+            dp[mn + 1] -= 1
+            dp[mn + mx] -= 1
+            dp[mn + mx + 1] += 1
+            dp[mx + limit + 1] += 1
 
-            diff[a + b] -= 1
-            diff[a + b + 1] += 1
+        ans, moves = n, 0
 
-        pair = n // 2
-        curr = pair * 2
-        ans = float("inf")
-
-        for tSum in range(2, 2 * limit + 1):
-            curr += diff[tSum]
-            ans = min(ans, curr)
+        for tar in range(2, 2 * limit + 1):
+            moves += dp[tar]
+            ans = min(ans, moves)
 
         return ans
