@@ -1,20 +1,18 @@
 class Solution:
     def isGood(self, nums: List[int]) -> bool:
-        maximum = max(nums)
+        n = len(nums)
+        mx = max(nums)
+        seen = set(nums)
+        slen = len(seen)
+        count = nums.count(mx)
 
-        if(len(nums) != maximum + 1):
+        if slen < n - 1 or mx == n or count != 2 or mx > n:
             return False
-
         else:
-            nums1 = set(nums)
-
-            for i in nums1:
-                if(i == maximum):
-                    continue
-                if(nums.count(i) > 1):
+            new = list(seen)
+            for i in range(1, slen):
+                x = new[i] - new[i - 1]
+                if x != 1:
                     return False
-                
-            if(nums.count(maximum) == 2):
-                return True
-                
-        return False
+
+            return True
