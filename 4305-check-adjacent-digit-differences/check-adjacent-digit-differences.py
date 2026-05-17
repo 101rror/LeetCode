@@ -1,12 +1,9 @@
 class Solution:
     def isAdjacentDiffAtMostTwo(self, s: str) -> bool:
-        lst = []
+        nums = list(s)
 
-        for x in s:
-            lst.append(int(x))
-
-        for i in range(1, len(lst)):
-            if abs(lst[i - 1] - lst[i]) > 2:
+        for i in range(1, len(nums)):
+            if abs(int(nums[i - 1]) - int(nums[i])) > 2:
                 return False
 
         return True
