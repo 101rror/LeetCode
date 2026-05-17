@@ -1,26 +1,19 @@
 class Solution:
     def canReach(self, arr: List[int], start: int) -> bool:
         n = len(arr)
-        visited = set()
-        q = deque([start])
 
-        while q:
-            for _ in range(len(q)):
-                val = q.popleft()
-                if val in visited:
-                    continue
-                visited.add(val)
+        def dfs(i: int) -> bool:
+            if i < 0 or i >= n or arr[i] < 0:
+                return False
 
-                if arr[val] == 0:
-                    return True
+            if arr[i] == 0:
+                return True
 
-                if val + arr[val] < n:
-                    if arr[val + arr[val]] == 0:
-                        return True
-                    q.append(val + arr[val])
-                if val - arr[val] > -1:
-                    if arr[val - arr[val]] == 0:
-                        return True
-                    q.append(val - arr[val])
+            arr[i] *= -1
 
-        return False
+            left = dfs(i + arr[i])
+            right = dfs(i - arr[i])
+
+            return left or right
+
+        return dfs(start)
