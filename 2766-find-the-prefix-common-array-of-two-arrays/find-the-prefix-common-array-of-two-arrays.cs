@@ -18,7 +18,7 @@ public class Solution {
 
             ans[i] = common;
         }
-
+        
         return ans;
     }
 }
