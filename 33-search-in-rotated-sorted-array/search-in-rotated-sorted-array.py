@@ -8,15 +8,12 @@ class Solution:
             if target == nums[mid]:
                 return mid
 
-            if nums[first] <= nums[mid]:
-                if nums[first] <= target < nums[mid]:
-                    last = mid - 1
-                else:
-                    first = mid + 1
+            elif (nums[first] < nums[mid] and nums[first] <= target < nums[mid]) or (
+                nums[first] > nums[mid]
+                and (target < nums[mid] or target >= nums[first])
+            ):
+                last = mid - 1
             else:
-                if nums[mid] < target <= nums[last]:
-                    first = mid + 1
-                else:
-                    last = mid - 1
+                first = mid + 1
 
         return -1
