@@ -8,10 +8,7 @@ class Solution:
             if target == nums[mid]:
                 return mid
 
-            elif (nums[first] < nums[mid] and nums[first] <= target < nums[mid]) or (
-                nums[first] > nums[mid]
-                and (target < nums[mid] or target >= nums[first])
-            ):
+            elif (nums[first] < nums[mid] and nums[first] <= target < nums[mid]) or (nums[first] > nums[mid] and (target < nums[mid] or target >= nums[first])):
                 last = mid - 1
             else:
                 first = mid + 1
