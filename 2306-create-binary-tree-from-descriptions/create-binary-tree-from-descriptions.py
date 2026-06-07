@@ -7,19 +7,21 @@
 class Solution:
     def createBinaryTree(self, descriptions: List[List[int]]) -> Optional[TreeNode]:
         nodes = {}
-        root = 0
+        st = set()
 
         for x, y, flag in descriptions:
             if x not in nodes:
                 nodes[x] = TreeNode(x)
-                root ^= x
             if y not in nodes:
                 nodes[y] = TreeNode(y)
-                root ^= y
+
             if flag:
                 nodes[x].left = nodes[y]
             else:
                 nodes[x].right = nodes[y]
-            root ^= y
 
-        return nodes[root]
+            st.add(y)
+
+        for val in nodes:
+            if val not in st:
+                return nodes[val]
