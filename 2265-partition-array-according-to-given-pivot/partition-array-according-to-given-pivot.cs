@@ -1,24 +1,21 @@
 public class Solution {
     public int[] PivotArray(int[] nums, int pivot) {
-        int[] result = new int[nums.Length];
-        int left = 0, right = nums.Length - 1;
-        
-        for (int i = 0, j = nums.Length - 1; i < nums.Length; i++, j--) {
-            if (nums[i] < pivot) {
-                result[left] = nums[i];
-                left++;
+        List<int> less = new();
+        List<int> equal = new();
+        List<int> greater = new();
+
+        foreach (int num in nums) {
+            if (num < pivot) {
+                less.Add(num);
             }
-            if (nums[j] > pivot) {
-                result[right] = nums[j];
-                right--;
+            else if (num == pivot) {
+                equal.Add(num);
+            }
+            else {
+                greater.Add(num);
             }
         }
-        
-        while (left <= right) {
-            result[left] = pivot;
-            left++;
-        }
-        
-        return result;
+
+        return less.Concat(equal).Concat(greater).ToArray();
     }
 }
