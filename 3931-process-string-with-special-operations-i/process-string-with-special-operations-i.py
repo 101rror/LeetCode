@@ -4,8 +4,7 @@ class Solution:
 
         for ch in s:
             if ch == "*":
-                if ans:
-                    ans = ans[:-1]
+                ans = ans[:-1]
             elif ch == "#":
                 ans += ans
             elif ch == "%":
