@@ -1,13 +1,13 @@
 class Solution:
     def arrayRankTransform(self, arr: List[int]) -> List[int]:
-        sortedarr = sorted(set(arr))
-        index = []
-        rank = {}
+        sarr = sorted(arr)
 
-        for idx, value in enumerate(sortedarr):
-            rank[value] = idx + 1
+        freq = {}
+        curr = 1
 
-        for num in arr:
-            index.append(rank[num])
+        for num in sarr:
+            if num not in freq:
+                freq[num] = curr
+                curr += 1
 
-        return index
+        return [freq[num] for num in arr]
