@@ -1,15 +1,15 @@
 class Solution:
     def rearrangeString(self, s: str, x: str, y: str) -> str:
-        xc = []
-        yc = []
-        ot = []
+        ans = ""
 
         for c in s:
             if c == y:
-                yc.append(c)
-            elif c == x:
-                xc.append(c)
-            else:
-                ot.append(c)
+                ans += c
+        for c in s:
+            if c != x and c != y:
+                ans += c
+        for c in s:
+            if c == x:
+                ans += c
 
-        return "".join(yc + ot + xc)
+        return ans
