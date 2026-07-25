@@ -7,6 +7,6 @@ class Solution:
             ans.append(rem)
             n //= 10
 
-        ans.sort(reverse = True)
+        ans.sort(reverse=True)
 
         return ans[0] * ans[1]
