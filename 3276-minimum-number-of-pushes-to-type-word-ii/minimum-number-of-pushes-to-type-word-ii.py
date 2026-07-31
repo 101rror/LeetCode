@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 class Solution:
     def minimumPushes(self, word: str) -> int:
         map = defaultdict(int)
